@@ -7,9 +7,10 @@ let went=document.querySelector("#went");
 let toy=document.querySelector(".toy");
 let Elli=document.querySelectorAll("li");
 let nav=document.querySelector("nav")
-let list = document.querySelector("#list");
 let Eli=document.querySelectorAll("#i");
-let some=document.querySelector("#some")
+let some=document.querySelector("#some");
+
+let pop=document.querySelectorAll(".pop");
 
 cart.addEventListener("click",()=>{
     was.style.display="flex"
@@ -23,13 +24,17 @@ was.addEventListener("click",(e)=>{
         was.style.display="none"
     }
 })
+let list = document.querySelector("#list");
+let page=document.querySelector("#pages");
  
 window.addEventListener('scroll',()=>{
    
     if(window.scrollY>40){
+        
         some.style.padding = "1px 0"
         went.style.display="none";
-        nav.style.top="0px"
+        nav.style.padding = "10px 0"
+        nav.style.top="0px";
         nav.style.transition = "all 1s ease";
         nav.style.backgroundColor="black";
         toy.style.color="white";
@@ -40,16 +45,22 @@ window.addEventListener('scroll',()=>{
         Eli.forEach((i)=>{
             i.style.color="white"
         })
+
+        
+
         cart.style.color="white"
     }
     else{
+        
+        nav.style.padding =""
         nav.style.top="";
         nav.style.transition = "all 0.6s ease";
         some.style.padding =""
         went.style.display=""
         nav.style.backgroundColor="";
         toy.style.color="";
-        list.style.color =""
+        list.style.color ="";
+       
         Elli.forEach((li) => {
             li.style.color="";
         });
@@ -57,9 +68,13 @@ window.addEventListener('scroll',()=>{
             i.style.color=""
         })
         cart.style.color=""
+
     }
     }
 )
+
+
+
 
 let section_2=document.querySelector(".section2")
 let mouse=document.querySelector(".click");
@@ -72,6 +87,8 @@ mouse.addEventListener("click",()=>{
     });
 
 })
+
+
 
 let fall=document.querySelector('.fall')
 const photo= [
@@ -143,4 +160,37 @@ photo_1.forEach(item=>{
                 <button>${item.usd}</button>
             </div>
     `
+})
+
+
+
+const off=[
+    {
+        pEl:"Catalog",
+    },
+    {
+        pEl:"Deliver",
+    },
+    {
+        pEl:"About",
+    },
+    {
+        pEl:"Contacts",
+    }
+]
+off.forEach(item=>{
+    pages.innerHTML+=`
+    <hr>
+    <div class="ok">
+    <p class="pop">${item.pEl}</p>
+    </div>
+    `
+})
+list.addEventListener("click",()=>{
+    if(pages.style.display !=="block"){
+        pages.style.display ="block"
+    }
+    else{
+        pages.style.display ="none"
+    }
 })
